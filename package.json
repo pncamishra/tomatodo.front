@@ -1,18 +1,18 @@
 {
-  "name": "template-front",
+  "name": "tomatodo-front",
   "version": "1.0.0",
   "description": "The application that allows you to create your CV and Cover Letter",
   "author": "Anastasia Zhivaeva",
   "license": "ISC",
   "repository": {
     "type": "github",
-    "url": "https://github.com/anastasia-a-zhivaeva/angular-template.front"
+    "url": "https://github.com/anastasia-a-zhivaeva/tomatodo.front"
   },
-  "readme": "https://github.com/anastasia-a-zhivaeva/angular-template.front#readme",
+  "readme": "https://github.com/anastasia-a-zhivaeva/tomatodo.front#readme",
   "bugs": {
-    "url": "https://github.com/anastasia-a-zhivaeva/angular-template.front/issues"
+    "url": "https://github.com/anastasia-a-zhivaeva/tomatodo.front/issues"
   },
-  "homepage": "https://github.com/anastasia-a-zhivaeva/angular-template.front#readme",
+  "homepage": "https://github.com/anastasia-a-zhivaeva/tomatodo.front#readme",
   "contributors": [
     {
       "name": "Anastasia Zhivaeva",
