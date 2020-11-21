@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'shared';
+import { TomatodoListComponent } from './tomatodo-list/tomatodo-list.component';
 
 import { TomatodoComponent } from './tomatodo.component';
 
@@ -8,7 +10,8 @@ describe('TomatodoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TomatodoComponent],
+      imports: [SharedModule],
+      declarations: [TomatodoComponent, TomatodoListComponent],
     }).compileComponents();
   });
 
