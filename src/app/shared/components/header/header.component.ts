@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { AuthService } from 'core/services';
 
 @Component({
   selector: 'ttd-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnInit {
-  constructor() {}
+export class HeaderComponent {
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  singIn() {
+    console.log('Sign in');
+  }
 }

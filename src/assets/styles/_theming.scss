@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+
+$mat-dark-grey: (
+  50: #5a5a5a,
+  100: #555555,
+  200: #4a4a4a,
+  300: #454545,
+  400: #3a3a3a,
+  500: #353535,
+  600: #2a2a2a,
+  700: #252525,
+  800: #1a1a1a,
+  900: #0a0a0a,
+  A100: #555555,
+  A200: #4a4a4a,
+  A400: #3a3a3a,
+  A700: #252525,
+  contrast: (
+    50: $light-primary-text,
+    100: $light-primary-text,
+    200: $light-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $light-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+// Alias for alternate spelling.
+$mat-dark-gray: $mat-dark-grey;

@@ -1,1 +1,29 @@
-<p>header works!</p>
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <a routerLink="/">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" color="white">alarm</mat-icon>
+      <span class="logo">TomaToDo</span>
+    </a>
+    <ng-container>
+      <a class="section-link" href="#focus">
+        Focus
+        <span>|</span>
+      </a>
+      <a class="section-link" href="#productivity">
+        Productivity
+        <span>|</span>
+      </a>
+      <a class="section-link" href="#achievement">
+        Achievement
+        <span>|</span>
+      </a>
+      <a class="section-link" href="#sign-in">
+        Try it now
+        <span>|</span>
+      </a>
+      <a class="section-link" href="#about-author">About author</a>
+    </ng-container>
+    <span class="spacier"></span>
+    <button mat-stroked-button (click)="singIn()">Sign in</button>
+  </mat-toolbar-row>
+</mat-toolbar>

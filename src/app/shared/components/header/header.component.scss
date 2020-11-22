@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+
+mat-toolbar {
+  position: fixed;
+  z-index: 1;
+}
+
+mat-icon {
+  margin-right: 10px;
+}
+
+.logo {
+  margin-right: 30px;
+}
+
+.spacier {
+  flex: 1 1 auto;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: $light-primary-text;
+}
+
+.section-link {
+  margin-left: 10px;
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: 2px;
+
+  span {
+    margin-left: 10px;
+  }
+}
