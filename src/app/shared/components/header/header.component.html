@@ -4,7 +4,7 @@
       <mat-icon aria-hidden="false" aria-label="Example home icon" color="white">alarm</mat-icon>
       <span class="logo">TomaToDo</span>
     </a>
-    <div class="section-links">
+    <div *ngIf="page === 'Landing'" class="section-links">
       <a class="section-link" href="#focus">
         Focus
         <span>|</span>
@@ -24,6 +24,12 @@
       <a class="section-link" href="#about-author">About author</a>
     </div>
     <span class="spacier"></span>
-    <button mat-stroked-button (click)="singIn()">Sign in</button>
+    <button *ngIf="(isAuthenticated$ | async) === false" mat-stroked-button (click)="singIn()">Sign in</button>
+    <button *ngIf="(isAuthenticated$ | async) && page === 'Landing'" mat-stroked-button (click)="goToApp()">
+      Go to App
+    </button>
+    <button *ngIf="(isAuthenticated$ | async) && page === 'Application'" mat-stroked-button (click)="singOut()">
+      Sign out
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
