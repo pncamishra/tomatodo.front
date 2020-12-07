@@ -23,21 +23,13 @@ export class HeaderComponent implements OnInit {
     // this.authService.user$.subscribe(console.log);
   }
 
-  singIn() {
-    this.authService
-      .loginWithRedirect({
-        redirect_uri: environment.auth0.redirectUrl,
-      })
-      .subscribe((_) => console.log('login'));
+  singInOrGoToApp() {
+    return this.router.navigate(['/tomatodo']);
   }
 
   singOut() {
     this.authService.logout({
       returnTo: environment.auth0.logoutUrl,
     });
-  }
-
-  goToApp() {
-    this.router.navigate(['/tomatodo']);
   }
 }

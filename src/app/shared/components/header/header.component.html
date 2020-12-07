@@ -25,8 +25,8 @@
       <a class="section-link" href="#about-author">About author</a>
     </div>
     <span class="spacier"></span>
-    <button (click)="singIn()" *ngIf="(isAuthenticated$ | async) === false" mat-stroked-button>Sign in</button>
-    <button (click)="goToApp()" *ngIf="(isAuthenticated$ | async) && page === 'Landing'" mat-stroked-button>
+    <button (click)="singInOrGoToApp()" *ngIf="(isAuthenticated$ | async) === false" mat-stroked-button>Sign in</button>
+    <button (click)="singInOrGoToApp()" *ngIf="(isAuthenticated$ | async) && page === 'Landing'" mat-stroked-button>
       Go to App
     </button>
     <button (click)="singOut()" *ngIf="(isAuthenticated$ | async) && page === 'Application'" mat-stroked-button>
