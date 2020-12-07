@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <mat-toolbar color="accent">
   <mat-toolbar-row>
     <a routerLink="/">
@@ -24,11 +25,11 @@
       <a class="section-link" href="#about-author">About author</a>
     </div>
     <span class="spacier"></span>
-    <button *ngIf="(isAuthenticated$ | async) === false" mat-stroked-button (click)="singIn()">Sign in</button>
-    <button *ngIf="(isAuthenticated$ | async) && page === 'Landing'" mat-stroked-button (click)="goToApp()">
+    <button (click)="singIn()" *ngIf="(isAuthenticated$ | async) === false" mat-stroked-button>Sign in</button>
+    <button (click)="goToApp()" *ngIf="(isAuthenticated$ | async) && page === 'Landing'" mat-stroked-button>
       Go to App
     </button>
-    <button *ngIf="(isAuthenticated$ | async) && page === 'Application'" mat-stroked-button (click)="singOut()">
+    <button (click)="singOut()" *ngIf="(isAuthenticated$ | async) && page === 'Application'" mat-stroked-button>
       Sign out
     </button>
   </mat-toolbar-row>

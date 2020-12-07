@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { SharedModule } from 'shared';
-import { TomatodoRoutingModule } from './tomatodo-routing.module';
-import { TomatodoComponent } from './tomatodo.component';
 import { TomatodoListComponent } from './tomatodo-list/tomatodo-list.component';
+import { TomatodoRoutingModule } from './tomatodo-routing.module';
 import { TomatodoTaskComponent } from './tomatodo-task/tomatodo-task.component';
+import { TomatodoComponent } from './tomatodo.component';
 
 @NgModule({
   declarations: [TomatodoComponent, TomatodoListComponent, TomatodoTaskComponent],

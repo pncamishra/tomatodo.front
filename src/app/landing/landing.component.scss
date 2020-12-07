@@ -24,6 +24,7 @@
     b {
       display: inline-block;
     }
+
     b:hover {
       @extend .pulse;
     }

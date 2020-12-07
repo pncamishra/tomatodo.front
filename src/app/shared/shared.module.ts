@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from 'shared/components';
-import { MaterialModule } from './material/material.module';
 import { SvgWaveComponent } from './components/svg-wave/svg-wave.component';
+import { MaterialModule } from './material/material.module';
 
 const components = [HeaderComponent];
 
