@@ -1,10 +1,11 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ttd-tomatodo-list',
   templateUrl: './tomatodo-list.component.html',
   styleUrls: ['./tomatodo-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TomatodoListComponent implements OnInit {
   todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];

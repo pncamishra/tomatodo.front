@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { AuthModule } from '@auth0/auth0-angular';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 
+import { AuthModule } from '@auth0/auth0-angular';
 import { NgxsDevtoolsOptions, NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsLoggerPluginModule, NgxsLoggerPluginOptions } from '@ngxs/logger-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsModule, NgxsModuleOptions } from '@ngxs/store';
 
+import { throwIfAlreadyLoaded } from 'core/global';
+import { UserState } from 'core/state';
 import { environment } from '../../environments';
 
 const ngxsConfig: NgxsModuleOptions = {
@@ -17,7 +19,7 @@ const ngxsConfig: NgxsModuleOptions = {
     injectContainerState: false,
   },
 };
-const ngxsStates = [];
+const ngxsStates = [UserState];
 
 const ngxsLoggerConfig: NgxsLoggerPluginOptions = {
   disabled: environment.production,
@@ -43,4 +45,8 @@ const ngxsDevtoolsConfig: NgxsDevtoolsOptions = {
   ],
   exports: [NgxsModule, NgxsLoggerPluginModule, AuthModule],
 })
-export class CoreModule {}
+export class CoreModule {
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+    throwIfAlreadyLoaded(parentModule, 'CoreModule');
+  }
+}

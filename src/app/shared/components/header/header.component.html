@@ -5,6 +5,7 @@
       <mat-icon aria-hidden="false" aria-label="Example home icon" color="white">alarm</mat-icon>
       <span class="logo">TomaToDo</span>
     </a>
+
     <div *ngIf="page === 'Landing'" class="section-links">
       <a class="section-link" href="#focus">
         Focus
@@ -24,13 +25,25 @@
       </a>
       <a class="section-link" href="#about-author">About author</a>
     </div>
+
     <span class="spacier"></span>
+
     <button (click)="singInOrGoToApp()" *ngIf="(isAuthenticated$ | async) === false" mat-stroked-button>Sign in</button>
-    <button (click)="singInOrGoToApp()" *ngIf="(isAuthenticated$ | async) && page === 'Landing'" mat-stroked-button>
-      Go to App
-    </button>
-    <button (click)="singOut()" *ngIf="(isAuthenticated$ | async) && page === 'Application'" mat-stroked-button>
-      Sign out
-    </button>
+
+    <ng-container *ngIf="isAuthenticated$ | async as isAuthenticated">
+      <button (click)="singInOrGoToApp()" *ngIf="page === 'Landing'" mat-stroked-button>Go to App</button>
+      <div *ngIf="page === 'Application' && user$ | async as user" class="user-info">
+        <span class="name">{{ user.name }}</span>
+        <img [src]="user.picture" alt="Profile photo" class="photo" />
+        <button [matMenuTriggerFor]="menu" aria-label="Menu icon button" mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="singOut()" mat-menu-item>
+            <span>Sing out</span>
+          </button>
+        </mat-menu>
+      </div>
+    </ng-container>
   </mat-toolbar-row>
 </mat-toolbar>
