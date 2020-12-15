@@ -1,8 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 
-import { UpdateAuthentication, UpdateUser } from 'core/actions';
 import { User } from 'core/models';
+
+export class UpdateUser {
+  static readonly type = '[USER] Update User';
+
+  constructor(public payload: User) {}
+}
+
+export class UpdateAuthentication {
+  static readonly type = '[USER] Update Authentication';
+
+  constructor(public payload: boolean) {}
+}
 
 export class UserStateModel {
   user: User;
@@ -19,7 +30,7 @@ export class UserStateModel {
 @Injectable()
 export class UserState {
   @Selector()
-  static getUser(state: UserStateModel) {
+  static user(state: UserStateModel) {
     return state.user;
   }
 

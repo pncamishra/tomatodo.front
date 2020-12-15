@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '@auth0/auth0-angular';
 import { Select, Store } from '@ngxs/store';
-import { UpdateAuthentication, UpdateUser } from 'core/actions/user.actions';
+
 import { User } from 'core/models';
-import { UserState } from 'core/state';
+import { UpdateAuthentication, UpdateUser, UserState } from 'core/state';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments';
 
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   @Input() page: 'Landing' | 'Application';
 
   @Select(UserState.isAuthenticated) isAuthenticated$: Observable<boolean>;
-  @Select(UserState.getUser) user$: Observable<User>;
+  @Select(UserState.user) user$: Observable<User>;
 
   constructor(private authService: AuthService, private router: Router, private store: Store) {}
 
