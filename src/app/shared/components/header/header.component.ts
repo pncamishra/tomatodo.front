@@ -9,6 +9,9 @@ import { UpdateAuthentication, UpdateUser, UserState } from 'core/state';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments';
 
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs/operators';
+
 @Component({
   selector: 'ttd-header',
   templateUrl: './header.component.html',
@@ -21,7 +24,12 @@ export class HeaderComponent implements OnInit {
   @Select(UserState.isAuthenticated) isAuthenticated$: Observable<boolean>;
   @Select(UserState.user) user$: Observable<User>;
 
-  constructor(private authService: AuthService, private router: Router, private store: Store) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private store: Store,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 
   ngOnInit() {
     this.authService.isAuthenticated$.subscribe((isAuthenticated) =>
@@ -39,4 +47,9 @@ export class HeaderComponent implements OnInit {
       returnTo: environment.auth0.logoutUrl,
     });
   }
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map((result) => result.matches),
+    shareReplay()
+  );
 }
